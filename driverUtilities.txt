@@ -1,0 +1,137 @@
+
+public class webdriversUtils
+{
+public void maximize(WebDriver driver)
+{
+driver.window().minimize();
+}
+
+public void minimize(WebDriver driver)
+{
+driver.window().minimize();
+}
+
+public void switchToWindow(WebDriver driver , String partialWindowTitle)
+{
+ set<String> allWindowid=driver.getWindowHandles();
+for(String id::allWindowid){
+String title=driver.switchTo().window(id).getTitle();
+if(title.equalsTo(partialWindowTitle))
+{
+break;
+}
+
+}
+
+public void implicitwait(WebDriver driver , int sec)
+{
+  driver.manage().timeout().implicitlyWait(Duration.ofSeconds(sec));
+}
+
+}
+
+public void selectOptions(WebElement ele, int index)
+{
+Select sel=new Select(ele);
+  sel.SelectBy(index);
+}
+
+public void selectOptions(WebElement ele , String text)
+{
+Select sel=new Select(ele);
+  sel.SelectByVisibleText(text);
+}
+
+public void actionClassClick(WebDriver driver , WebElement ele )
+{
+Action act =new ation(driver);
+act.click(ele).perform();
+}
+
+public void actionClass(WebDriver driver , WebElement ele)
+{
+Actions act =new Actions(driver);
+act.moveToElement(ele).perform();
+}
+
+public void contextClick(WebDriver driver)
+{
+Actions act=new Actions();
+act.conrextClick().perform();
+}
+
+public void moveByOffset(WebDriver driver , int x, int y)
+{
+Actions act=new Actions(driver);
+act.moveByOffset(x,y).perform();
+}
+
+public void scrollAction(WebDriver driver, int x, int y)
+{
+JavascriptExecutor js=(JavascriptExecutor)driver;
+js.executeScript("Window.scrollBy(x,y)")
+}
+
+public void ExplicitWait(WebDriver driver , int sec, WebElement ele)
+{
+ WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(sec)) 
+ wait.Until(ExpectedConditions.elementToBeClickable(ele))
+
+}
+
+public void ExplicitWait(WebDriver driver , WebElement ele, int sec)
+{
+ WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(sec)) 
+ wait.Until(ExpectedConditions.elementToBeVisible(ele))
+
+}
+
+public void alert(WebDriver driver)
+{
+    driver.switchTo.alert();
+}
+
+public String getAlertText(WebDriver driver)
+{
+String text=driver.switchTo().alert().getText();
+return text;
+}
+
+public void getScreenShot(WebDriver driver, String Filepath)
+{
+TakesScreenShot ts=(TakesScreenShot)driver;
+File temp=ts.getScreenShotAs(OutputType.File);
+File src=new File("Filepath")
+FileHandler.copy(temp,src);
+}
+
+public void switchToFrame(WebDriver driver int index)
+{
+driver.switchTo().frame(index);
+}
+
+public void SwitchToFrameWeblelement(WebDriver driver , WebElement ele)
+{
+driver.switchTo().frame(ele);
+}
+
+public void  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+}
